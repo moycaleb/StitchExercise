@@ -1,0 +1,14 @@
+<mjml>
+  <mj-body>
+    <mj-section>
+      <mj-column>
+        <!-- First column content -->
+        <mj-text>yo</mj-text>
+      </mj-column>
+      <mj-column>
+        <!-- Second column content -->
+        <mj-text>yo 2</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
