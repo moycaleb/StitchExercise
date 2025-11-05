@@ -1,0 +1,85 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Open Sans" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <mj-font name="PT Sans" href="https://fonts.googleapis.com/css?family=PT+Sans" />
+  
+  <mj-style>
+    h2 {
+        font-size: 12px !important;
+        font-weight: bold !important;
+        font-family: 'PT Sans', Arial, sans-serif;
+        color: #384048 !important;
+        }
+  </mj-style>
+
+  </mj-head>
+  <mj-body>
+    <mj-section background-url="images/hero_bg_img.jpg">
+      <mj-column>
+        <mj-image width="109px" src="images/stitch-logo.png"></mj-image>
+
+        <mj-navbar>
+          <mj-navbar-link href="" font-family="'Open Sans', Arial, sans-serif" font-size="12px" color="#ffffff">Home</mj-navbar-link>
+          <mj-navbar-link href="" font-family="'Open Sans', Arial, sans-serif" font-size="12px" color="#ffffff">Services</mj-navbar-link>
+          <mj-navbar-link href="" font-family="'Open Sans', Arial, sans-serif" font-size="12px" color="#ffffff">Features</mj-navbar-link>
+          <mj-navbar-link href="" font-family="'Open Sans', Arial, sans-serif" font-size="12px" color="#ffffff">Contact</mj-navbar-link>
+        </mj-navbar>
+
+        <mj-text align="center"  color="#ffffff">
+            <h1 font-size="39.75px">HAVE A GOOD DAY</h1>
+        </mj-text>
+        
+        <mj-divider border-width="1px" border-style="solid" border-color="white" width="76px"/>
+        <mj-text align="center"  color="#ffffff">
+            <span font-size="12px">JUST FOR YOU ON STITCH.CX</span>
+        </mj-text>
+        <mj-divider border-width="1px" border-style="solid" border-color="white" width="76px"/>
+
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#f5f5f5">
+      <mj-column>
+        <mj-image width="199px" src="images/mod2_img1.jpg" align="left"></mj-image>
+        <mj-text>
+            <h2>RESPONSIVE EMAIL TEMPLATE</h2>
+        </mj-text>
+        <mj-divider border-width="1px" border-style="solid" border-color="#eaeaeb" width="218px" align="left"/>
+        <mj-text font-family="'PT Sans', Arial, sans-serif" font-size="12px" color="#787b80" line-height="18px">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum mollis</p>
+        </mj-text>
+        <mj-button href="#" font-family="'PT Sans', Arial, sans-serif" background-color="#50c3af" color="white" border-radius="25px" align="left">
+          Read more
+         </mj-button>
+      </mj-column>
+      <mj-column>
+        <mj-image width="199px" src="images/mod2_img2.jpg" align="left"></mj-image>
+        <mj-text>
+            <h2>FULLY COMPATIBLE TEMPLATE</h2>
+        </mj-text>
+        <mj-divider border-width="1px" border-style="solid" border-color="#eaeaeb" width="218px" align="left"/>
+        <mj-text font-family="'PT Sans', Arial, sans-serif" font-size="12px" color="#787b80" line-height="18px">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum mollis</p>
+        </mj-text>
+        <mj-button href="#" font-family="'PT Sans', Arial, sans-serif" background-color="#50c3af" color="white" border-radius="25px" align="left">
+          Read more
+         </mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#eeeeef">
+        <mj-column padding="40px">
+            <mj-image width="18px" src="images/mod3_icon1.png" align="left" ></mj-image>
+            <mj-text>
+                <h2>FULLY SUPPORTED TEMPLATE</h2>
+            </mj-text>
+            <mj-divider border-width="1px" border-style="solid" border-color="#e3e4e5" width="218px" align="left"/>
+            <mj-text>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem commodo vitae. Ut semper semper lacus. Suspendisse convallis vel tellus at consectetur. Aenean risus arcu</p>
+            </mj-text>
+            <!-- horrible a11y: -->
+            <mj-button href="#" font-family="'PT Sans', Arial, sans-serif" background-color="#d2d5da" color="white" border-radius="25px" align="left">
+                Read more
+            </mj-button>
+        </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
