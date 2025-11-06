@@ -4,6 +4,8 @@ I focused on more modern email service providers and clients for this exercise, 
 
 You can view the Litmus test results here: https://litmus.com/pub/10B0xcnOAAko17cY 
 
+If this were a real world client, and I was at Stitch, I would be asking a lot of clarifying questions, such as:
+
 ## Questions & Notes for the Team
 
 ### Audience & Accessibility
@@ -37,7 +39,9 @@ You can view the Litmus test results here: https://litmus.com/pub/10B0xcnOAAko17
   - This information would be read 2x in a row by the screen reader.
 
 ### Braze Attributes
-- Confirm personalization syntax. Currently using: `{{${first_name}, | default: 'Hi there,'}}`  
+- Confirm personalization syntax. Currently using: `{{${first_name}, | default: 'Hi there,'}}`
+  - Fallback, in case there is no first_name attribute, is `Hi there,`
+  - I kept the file format as .html since this is the ONLY liquid in the whole file.
 
 ---
 
