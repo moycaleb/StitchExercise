@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no"> <!-- Tell iOS not to automatically link certain text strings. -->
     <meta name="color-scheme" content="light dark">
     <meta name="supported-color-schemes" content="light dark">
-    <title>🟢 First name, here are templates for you!</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+    <title>{{${first_name}, | default: 'Hi there,'}} here are templates for you!</title> <!-- The title tag shows in email notifications, like Android 4.4. -->
 
     <!-- What it does: Makes background images in 72ppi Outlook render at correct size. -->
     <!--[if gte mso 9]>
@@ -20,20 +20,19 @@
     <![endif]-->
 
     <!-- Web Font / @font-face : BEGIN -->
-    <!-- NOTE: If web fonts are not required, lines 23 - 41 can be safely removed. -->
 
     <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
     <!--[if mso]>
         <style>
             * {
-                font-family: sans-serif !important;
+                font-family: Arial, sans-serif !important;
             }
         </style>
     <![endif]-->
 
     <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: https://web.archive.org/web/20190717120616/http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
     <!--[if !mso]><!-->
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <!--<![endif]-->
 
     <!-- Web Font / @font-face : END -->
@@ -211,6 +210,9 @@
 			.pt10 {
 				padding-top: 10px !important;
 			}
+			.pt20 {
+				padding-top: 20px !important;
+			}
 			.mobile-show {
 				display: block !important;
 			}
@@ -233,6 +235,7 @@
 				max-width: 50% !important;
 				text-align: center !important;
 			}
+			.centertable{margin:0 auto !important}
 	    }
 
         /* Dark Mode Styles : BEGIN */
@@ -317,12 +320,13 @@
 
 	        <!-- Email Body : BEGIN -->
 	        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
- 				<!-- Hero Section with Background Image : BEGIN-->
+
+ 				<!-- MOD 1 - HERO : BEGIN-->
 				<tr>
-					<td valign="middle" style="text-align: center; background-image: url('images/hero_bg_img.jpg'); background-color: #222222; background-position: center center !important; background-size: cover !important;">
+					<td valign="middle" style="text-align: center; background-image: url('https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/hero_bg_img.jpg'); background-color: #222222; background-position: center center !important; background-size: cover !important;">
 						<!--[if gte mso 9]>
 						<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:175px; background-position: center center !important;">
-						<v:fill type="tile" src="images/hero_bg_img.jpg" color="#222222" />
+						<v:fill type="tile" src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/hero_bg_img.jpg" color="#222222" />
 						<v:textbox inset="0,0,0,0">
 						<![endif]-->
 						<div>
@@ -330,7 +334,7 @@
 								<!-- Logo -->
 								<tr>
 									<td style="padding: 49px 0 30px 0; text-align: center" class="logopadding">
-										<img src="images/stitch-logo.png" width="109" alt="Stich" border="0" style="height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 15px;">
+										<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/stitch-logo.png" width="109" alt="Stich" border="0" style="height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 15px;">
 									</td>
 								</tr>
 
@@ -339,10 +343,10 @@
 									<td style="padding: 0; text-align: center;">
 										<table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
 											<tr>
-												<td style="font-family: 'Open Sans', sans-serif; font-size: 12px; line-height: 18px; font-weight: 700;">
-														<a href="#" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">HOME</a>&nbsp;<a href="#" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">SERVICES</a>
+												<td style="font-family: 'Open Sans', Arial, sans-serif; font-size: 12px; line-height: 18px; font-weight: 700;">
+														<a href="https://www.stitch.cx/" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">HOME</a>&nbsp;<a href="https://www.stitch.cx/about" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">SERVICES</a>
 														<div style="height: 15px; display:none;" class="mobile-show"></div>
-														<a href="#" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">FEATURES</a>&nbsp;<a href="#" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">CONTACT</a>
+														<a href="https://www.stitch.cx/resources" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">FEATURES</a>&nbsp;<a href="https://www.stitch.cx/partner-with-us" style="color: #ffffff; text-decoration: none; padding: 0px 15px;">CONTACT</a>
 												</td>
 											</tr>
 										</table>
@@ -351,8 +355,13 @@
 							
 								<!-- Have a Good Day -->
 								<tr>
-									<td style="padding: 0 0; text-align: center">
-										<img src="images/hero-have-a-good-day.png" width="600" alt="HAVE A GOOD DAY. JUST FOR YOU ON STITCH.CX." border="0" style="height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 15px;" class="width100">
+									<td style="color: #555555; padding: 56px 0 0 0;" class="stack-column-center">
+										<a href="https://www.stitch.cx/" style="text-decoration: none;"><h1 style="margin: 0; font-size: 39.75px; line-height: 44px; font-family: 'Ubuntu', Arial, sans-serif; color:#ffffff;">HAVE A GOOD DAY.</h1></a>
+									</td>
+								</tr>
+								<tr>
+									<td style="padding: 32px 0 61px 0; text-align: center">
+										<a href="https://www.stitch.cx/" style="text-decoration: none;"><img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/just4you.png" width="361" alt="JUST FOR YOU ON STITCH.CX." border="0" style="height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 15px;" class="width100 mw80"></a>
 									</td>
 								</tr>
 							</table>
@@ -363,7 +372,7 @@
 						<![endif]-->
 					</td>
 				</tr>
-				<!-- Hero Section with Background Image : END -->
+				<!-- MOD 1 - HERO : END -->
 
 				
 				
@@ -380,7 +389,7 @@
 
 
 
-                <!-- MOD 2 -- Two Columns, Image, Text, Button : BEGIN -->
+                <!-- MOD 2 -- Side by Side 2 Column Blog Post : BEGIN -->
 				<tr>
 					<td align="center" valign="top" style="font-size:0; padding: 44px 78px 38px 78px; background-color: #ffffff;" class="darkmode-bg">
 						<!--[if mso]>
@@ -395,33 +404,35 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: left;">
 											<tr>
 												<td>
-													<img src="images/mod2_img1.jpg" width="199" height="" border="0" alt="alt_text" style="width: 100%; max-width: 199px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod2_img1.jpg" width="199" height="" border="0" alt="" style="width: 100%; max-width: 199px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
 												</td>
 											</tr>
 											<tr>
-												<td style="color: #555555; padding-top: 10px;" class="stack-column-center">
-													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">RESPONSIVE EMAIL TEMPLATE</h2>
+												<td style="color: #384048; padding-top: 10px;" class="stack-column-center">
+													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif;">RESPONSIVE EMAIL TEMPLATE</h2>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="218" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="218" height="3" border="0" alt="" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
 												</td>
 											</tr>
 											<tr>
-												<td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding-top: 10px;" class="stack-column-center">
+												<td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 18px; color: #787b80; padding-top: 10px;" class="stack-column-center">
 													<p style="margin: 0;">
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum mollis
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum&nbsp;mollis
 													</p>
 												</td>
 											</tr>
+										</table>
+										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
 											<!-- Button -->
 											<tr>
 												<td style="padding-top: 20px;">
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
                                                         <tr>
                                                             <td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
-                                                                <a class="button-a button-a-primary" href="https://google.com/" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+                                                                <a class="button-a button-a-primary" href="https://www.stitch.cx/about?1" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -439,37 +450,39 @@
 						<div style="display:inline-block; margin: 0 -1px; width:50%; min-width:200px; max-width:300px; vertical-align:top;" class="stack-column">
 							<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 								<tr>
-									<td style="">
+									<td class="pt20">
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
 											<tr>
 												<td>
-													<img src="images/mod2_img2.jpg" width="199" height="" border="0" alt="alt_text" style="width: 100%; max-width: 199px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod2_img2.jpg" width="199" height="" border="0" alt="" style="width: 100%; max-width: 199px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80;" class="center-on-narrow">
 												</td>
 											</tr>
 											<tr>
-												<td style="color: #555555; padding-top: 10px;" class="stack-column-center">
-													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">FULLY COMPATIBLE TEMPLATE</h2>
+												<td style="color: #384048; padding-top: 10px;" class="stack-column-center">
+													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif;">FULLY COMPATIBLE TEMPLATE</h2>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="218" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="218" height="3" border="0" alt="" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
 												</td>
 											</tr>
 											<tr>
-												<td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding-top: 10px;" class="stack-column-center">
+												<td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 18px; color: #787b80; padding-top: 10px;" class="stack-column-center">
 													<p style="margin: 0;">
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum mollis
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum&nbsp;mollis
 													</p>
 												</td>
 											</tr>
+										</table>
+										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
 											<!-- Button -->
 											<tr>
 												<td style="padding-top: 20px;">
                                                     <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
                                                         <tr>
                                                             <td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
-                                                                <a class="button-a button-a-primary" href="https://google.com/" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+                                                                <a class="button-a button-a-primary" href="https://www.stitch.cx/about?2" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -487,15 +500,15 @@
 						<![endif]-->
 					</td>
 				</tr>
-				<!-- MOD 2 -- Two Columns, Image, Text, Button : END -->
+				<!-- MOD 2 -- Side by Side 2 Column Blog Post : END -->
 
 
-				<!-- MOD 3 -- Fully Supported Template : BEGIN -->
+				<!-- MOD 3 -- Gray Background Feature : BEGIN -->
 				<tr>
 					<td align="center" valign="top" style="background-color:#f3f4f6; " class="darkmode-bg">
 						<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width:600px; margin:auto;">
 							<tr>
-								<td style="padding: 44px 78px 38px 78px; text-align:left; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#555555;">
+								<td style="padding: 44px 78px 38px 78px; text-align:left; font-family:'PT Sans', Arial, sans-serif; color:#787b80;">
 									<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 										<tr>
 											<!-- Icon + Title -->
@@ -503,10 +516,10 @@
 												<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 													<tr>
 														<td valign="middle" width="18" style="padding-right:10px;">
-															<img src="images/mod3_icon1.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
+															<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod3_icon1.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
 														</td>
 														<td valign="middle">
-															<h2 style="margin:0; font-size:16px; line-height:20px; color:#384048; font-weight:700;">FULLY SUPPORTED TEMPLATE</h2>
+															<h2 style="margin:0; font-size:14px; line-height:18px; color:#384048; font-weight:700;">FULLY SUPPORTED TEMPLATE</h2>
 														</td>
 													</tr>
 												</table>
@@ -520,9 +533,7 @@
 											<!-- Body copy -->
 											<td style="padding-bottom:25px; padding-top: 20px;">
 												<p style="font-size:13px; line-height:20px; margin:0; color: #787b80">
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, 
-													a adipiscing lorem commodo vitae. Ut semper semper lacus. Suspendisse convallis vel tellus at consectetur. 
-													Aenean risus arcu
+													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem commodo vitae. Ut semper semper lacus. Suspendisse convallis vel tellus at consectetur. Aenean risus&nbsp;arcu
 												</p>
 											</td>
 										</tr>
@@ -532,7 +543,7 @@
 												<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
 													<tr>
 														<td class="button-td button-td-primary" style="border-radius: 25px; background: #818181;">
-															<a class="button-a button-a-primary" href="https://google.com/" style="background: #818181; border: 1px solid #818181; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+															<a class="button-a button-a-primary" href="https://www.stitch.cx/" style="background: #818181; border: 1px solid #818181; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
 														</td>
 													</tr>
 												</table>
@@ -544,11 +555,11 @@
 						</table>
 					</td>
 				</tr>
-				<!-- MOD 3 -- Fully Supported Template : END -->
+				<!-- MOD 3 -- Gray Background Feature : END -->
 
 
 
-				<!-- MOD 4 - Three Columns : BEGIN -->
+				<!-- MOD 4 - Side by Side 3 Column Blog Post : BEGIN -->
                 <tr>
                     <td align="center" valign="top" style="font-size:0; padding: 44px 78px 38px 78px; background-color: #ffffff;" class="darkmode-bg">
                         <!--[if mso]>
@@ -563,29 +574,41 @@
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
                                             <tr>
                                                 <td>
-                                                    <img src="images/mod4_img1.jpg" width="137" height="" border="0" alt="alt_text" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
+                                                    <img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod4_img1.jpg" width="137" height="" border="0" alt="" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80;" class="center-on-narrow">
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="color: #555555; padding-top: 10px;" class="stack-column-center">
-													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">LAYERED PSD</h2>
+												<td style="color: #384048; padding-top: 10px;" class="stack-column-center">
+													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif;">LAYERED PSD</h2>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="218" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="218" height="3" border="0" alt="" style="width: 100%; max-width: 218px; height: auto;" class="center-on-narrow">
 												</td>
 											</tr>
                                             <tr>
-                                                <td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">
+                                                <td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80; padding-top: 10px;" class="stack-column-center">
                                                     <p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing&nbsp;elit.</p>
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="padding-top: 15px;">
-													<a href="https://www.audible.com/" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; text-decoration: none; display: inline-block; color: #50c3af; font-size: 14px;">Check this out &gt;</a>
+												<td>
+													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
+														<!-- Button -->
+														<tr>
+															<td style="padding-top: 20px;">
+																<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+																	<tr>
+																		<td>
+																			<a href="https://www.stitch.cx/?1" style="font-family: 'PT Sans', Arial, sans-serif; font-size: 14px; line-height: 14px; text-decoration: none; color: #50c3af; display: block; border-radius: 25px;">Check this out &gt;</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
 												</td>
-											</tr>
                                         </table>
                                     </td>
                                 </tr>
@@ -603,28 +626,41 @@
                                     <td style="padding: 0px;">
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
                                             <tr>
-                                                <td>
-                                                    <img src="images/mod4_img2.jpg" width="137" height="" border="0" alt="alt_text" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
+												<td class="pt20">
+                                                    <img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod4_img2.jpg" width="137" height="" border="0" alt="" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80;" class="center-on-narrow">
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="color: #555555; padding-top: 10px;" class="stack-column-center">
-													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">FULLY COMPATIBILE</h2>
+												<td style="color: #384048; padding-top: 10px;" class="stack-column-center">
+													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif;">FULLY COMPATIBILE</h2>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="137" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 137px; height: auto;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="137" height="3" border="0" alt="" style="width: 100%; max-width: 137px; height: auto;" class="center-on-narrow">
 												</td>
 											</tr>
                                             <tr>
-                                                <td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">
+                                                <td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80; padding-top: 10px;" class="stack-column-center">
                                                     <p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing&nbsp;elit.</p>
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="padding-top: 15px;">
-													<a href="https://www.audible.com/" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; text-decoration: none; display: inline-block; color: #50c3af; font-size: 14px;">Check this out &gt;</a>
+												<td>
+													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
+														<!-- Button -->
+														<tr>
+															<td style="padding-top: 20px;">
+																<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+																	<tr>
+																		<td>
+																			<a href="https://www.stitch.cx/?2" style="font-family: 'PT Sans', Arial, sans-serif; font-size: 14px; line-height: 14px; text-decoration: none; color: #50c3af; display: block; border-radius: 25px;">Check this out &gt;</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
 												</td>
 											</tr>
                                         </table>
@@ -644,28 +680,41 @@
                                     <td style="padding: 0px;">
                                         <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
                                             <tr>
-                                                <td>
-                                                    <img src="images/mod4_img3.jpg" width="137" height="" border="0" alt="alt_text" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555;" class="center-on-narrow">
+												<td class="pt20">
+                                                    <img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod4_img3.jpg" width="137" height="" border="0" alt="" style="width: 100%; max-width: 137px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80;" class="center-on-narrow">
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="color: #555555; padding-top: 10px;" class="stack-column-center">
-													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">GREAT MODULES</h2>
+												<td style="color: #384048; padding-top: 10px;" class="stack-column-center">
+													<h2 style="font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif;">GREAT MODULES</h2>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="137" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 137px; height: auto;" class="center-on-narrow">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="137" height="3" border="0" alt="" style="width: 100%; max-width: 137px; height: auto;" class="center-on-narrow">
 												</td>
 											</tr>
                                             <tr>
-                                                <td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 20px; color: #555555; padding-top: 10px;" class="stack-column-center">
+                                                <td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 20px; color: #787b80; padding-top: 10px;" class="stack-column-center">
                                                     <p style="margin: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing&nbsp;elit.</p>
                                                 </td>
                                             </tr>
 											<tr>
-												<td style="padding-top: 15px;">
-													<a href="https://www.audible.com/" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; text-decoration: none; display: inline-block; color: #50c3af; font-size: 14px;">Check this out &gt;</a>
+												<td>
+													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
+														<!-- Button -->
+														<tr>
+															<td style="padding-top: 20px;">
+																<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+																	<tr>
+																		<td>
+																			<a href="https://www.stitch.cx/?1" style="font-family: 'PT Sans', Arial, sans-serif; font-size: 14px; line-height: 14px; text-decoration: none; color: #50c3af; display: block; border-radius: 25px;">Check this out &gt;</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
 												</td>
 											</tr>
                                         </table>
@@ -680,10 +729,10 @@
                         <![endif]-->
                     </td>
                 </tr>
-                <!-- MOD 4 - Three Columns : END -->
+                <!-- MOD 4 - Side by Side 3 Column Blog Post : END -->
 
 
-				<!-- MOD 5 -- Two Columns, Text, Button : BEGIN -->
+				<!-- MOD 5 -- Side by Side 2 Column : BEGIN -->
 				<tr>
 					<td align="center" valign="top" style="font-size:0; padding: 44px 78px 38px 78px; background-color: #ffffff;" class="darkmode-bg">
 						<!--[if mso]>
@@ -697,14 +746,14 @@
 									<td>
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: left;">
 											<tr>
-												<td width="130" style="text-align:left; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#555555;" class="center-on-narrow">
+												<td width="130" style="text-align:left; font-family:'PT Sans', Arial, sans-serif; color:#555555;" class="center-on-narrow">
 													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 														<tr>
 															<td valign="middle" width="18" style="padding-right:10px;">
-																<img src="images/mod5_icon1.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
+																<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod5_icon1.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
 															</td>
 															<td valign="middle">
-																<h2 style="margin:0; font-size:16px; line-height:20px; color:#384048; font-weight:700;">SEND IT NOW</h2>
+																<h2 style="margin:0; font-size:14px; line-height:18px; color:#384048; font-weight:700;">SEND IT&nbsp;NOW</h2>
 															</td>
 														</tr>
 													</table>
@@ -712,26 +761,32 @@
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="189" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 189px; height: auto;" class="center-on-narrow width100 mw80 pt10">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="189" height="3" border="0" alt="" style="width: 100%; max-width: 189px; height: auto;" class="center-on-narrow width100 mw80 pt10">
 												</td>
 											</tr>
 											<tr>
-												<td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding-top: 10px;" class="stack-column-center">
+												<td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 18px; color: #787b80; padding-top: 10px;" class="stack-column-center">
 													<p style="margin: 0;">
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem. 
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing&nbsp;lorem. 
 													</p>
 												</td>
 											</tr>
-											<!-- Button -->
 											<tr>
-												<td style="padding-top: 20px;">
-                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
-                                                        <tr>
-                                                            <td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
-                                                                <a class="button-a button-a-primary" href="https://google.com/" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+												<td>
+													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
+														<!-- Button -->
+														<tr>
+															<td style="padding-top: 20px;">
+																<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+																	<tr>
+																		<td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
+																			<a class="button-a button-a-primary" href="hhttps://www.stitch.cx/resources?1" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
 												</td>
 											</tr>
 										</table>
@@ -749,14 +804,14 @@
 									<td>
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
 											<tr>
-												<td width="160" style="text-align:left; font-family:'PT Sans', Arial, Helvetica, sans-serif; color:#555555;" class="center-on-narrow">
+												<td width="160" style="text-align:left; font-family:'PT Sans', Arial, sans-serif; color:#555555;" class="center-on-narrow pt20">
 													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 														<tr>
 															<td valign="middle" width="18" style="padding-right:10px;">
-																<img src="images/mod5_icon2.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
+																<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod5_icon2.png" width="18" height="19" alt="" border="0" style="display:block; width:18px; height:auto;">
 															</td>
 															<td valign="middle">
-																<h2 style="margin:0; font-size:16px; line-height:20px; color:#384048; font-weight:700;">VERY NICE TO SEE</h2>
+																<h2 style="margin:0; font-size:14px; line-height:18px; color:#384048; font-weight:700;">VERY NICE TO&nbsp;SEE</h2>
 															</td>
 														</tr>
 													</table>
@@ -764,26 +819,33 @@
 											</tr>
 											<tr>
 												<td>
-													<img src="images/divider_gradient.png" width="189" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 189px; height: auto;" class="center-on-narrow width100 mw80 pt10">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="189" height="3" border="0" alt="" style="width: 100%; max-width: 189px; height: auto;" class="center-on-narrow width100 mw80 pt10">
 												</td>
 											</tr>
 											<tr>
-												<td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding-top: 10px;" class="stack-column-center">
+												<td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 18px; color: #787b80; padding-top: 10px;" class="stack-column-center">
 													<p style="margin: 0;">
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing lorem. 
+														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada sodales risus, a adipiscing&nbsp;lorem. 
 													</p>
 												</td>
 											</tr>
 											<!-- Button -->
 											<tr>
-												<td style="padding-top: 20px;">
-                                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
-                                                        <tr>
-                                                            <td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
-                                                                <a class="button-a button-a-primary" href="https://google.com/" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
+												<td>
+													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px; text-align: center;">
+														<!-- Button -->
+														<tr>
+															<td style="padding-top: 20px;">
+																<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
+																	<tr>
+																		<td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
+																			<a class="button-a button-a-primary" href="hhttps://www.stitch.cx/resources?1" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+																		</td>
+																	</tr>
+																</table>
+															</td>
+														</tr>
+													</table>
 												</td>
 											</tr>
 										</table>
@@ -798,10 +860,10 @@
 						<![endif]-->
 					</td>
 				</tr>
-				<!-- MOD 5 -- Two Columns, Text, Button : END -->
+				<!-- MOD 5 -- Side by Side 2 Column : END -->
 
 
-				<!-- Mod 6 - Image left, text right : BEGIN -->
+				<!-- MOD 6 - Side by Side 2 Column - Img Left : BEGIN -->
 				<tr>
 					<td align="center" valign="top" style="font-size:0; padding: 44px 78px 38px 78px; background-color: #ffffff;" class="darkmode-bg">
 						<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
@@ -816,7 +878,7 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
 												<td dir="ltr">
-													<img src="images/mod6_img1.jpg" width="198" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 198px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
+													<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/mod6_img1.jpg" width="198" height="" border="0" alt="" class="center-on-narrow" style="width: 100%; max-width: 198px; height: auto; background: #dddddd; font-family: 'PT Sans', Arial, sans-serif; font-size: 15px; line-height: 15px; color: #555555;">
 												</td>
 											</tr>
 										</table>
@@ -828,21 +890,21 @@
 									<div style="display:inline-block; margin: 0 -1px; max-width: 246px; min-width:200px; vertical-align:top;" class="stack-column">
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
-												<td dir="ltr" style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 18px; color: #555555; padding-left: 22px;" class="stack-column-center padleft0">
+												<td dir="ltr" style="font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 18px;  padding-left: 22px;" class="stack-column-center padleft0">
 													<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 														<tr>
-															<td class="pt10">
-																<h2 style="margin: 0; font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, Helvetica, sans-serif;">RESPONSIVE EMAIL TEMPLATE</h2>
+															<td class="pt20">
+																<h2 style="margin: 0; font-size: 14px; line-height: 18px; font-family: 'PT Sans', Arial, sans-serif; color: #293139;">JUST FOR YOU ON THEMEFOREST</h2>
 															</td>
 														</tr>
 														<tr>
 															<td class="center-on-narrow">
-																<img src="images/divider_gradient.png" width="218" height="3" border="0" alt="alt_text" style="width: 100%; max-width: 218px; height: auto;">
+																<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/divider_gradient.png" width="218" height="3" border="0" alt="" style="width: 100%; max-width: 218px; height: auto;">
 															</td>
 														</tr>
 														<tr>
 															<td>
-																<p style="margin: 0 0 10px 0;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+																<p style="margin: 0 0 10px 0; color: #787b80;">Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia&nbsp;nostra.</p>
 															</td>
 														</tr>
 													</table>
@@ -850,7 +912,7 @@
 													<table role="presentation" cellspacing="0" cellpadding="0" border="0" class="center-on-narrow" style="float:left;">
 														<tr>
 															<td class="button-td button-td-primary" style="border-radius: 25px; background: #50c3af;">
-																<a class="button-a button-a-primary" href="https://google.com/" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
+																<a class="button-a button-a-primary" href="https://www.stitch.cx/partner-with-us" style="background: #50c3af; border: 1px solid #50c3af; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 12px; text-decoration: none; padding: 8px 10px; color: #ffffff; display: block; border-radius: 25px;">Read more</a>
 															</td>
 														</tr>
 													</table>
@@ -869,14 +931,14 @@
 						</table>
 					</td>
 				</tr>
-				<!-- Mod 6 - Image left, text right : END -->
+				<!-- MOD 6 - Side by Side 2 Column - Img Left : END -->
 
-				<!-- Mod 7 - Featured on : START -->
+				<!-- MOD 7 - Featured On Footer Logos : START -->
 				<tr>
 					<td align="center" valign="top" style="font-size:0; padding: 40px 78px; background-color: #50c3af;" class="darkmode-fullbleed-bg">
 						<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 							<tr>
-								<td align="center" style="padding: 0 40px; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 12px; line-height: 20px; color: #ffffff;">
+								<td align="center" style="padding: 0 40px; font-family: 'PT Sans', Arial, sans-serif; font-size: 12px; line-height: 20px; color: #ffffff;">
 									<h3 style="margin: 0; font-size: 12px; line-height: 14px; font-weight: 400; color: #ffffff;">
 										<span style="font-size: 12px; line-height: 14px;">☆</span> THIS TEMPLATE WAS FEATURED&nbsp;ON
 									</h3>
@@ -892,7 +954,9 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
 												<td class="center">
-													<img src="images/footer_logo1.png" width="125" height="auto" alt="TechCrunch" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													<a href="https://www.stitch.cx/?logo1" style="text-decoration: none;">
+														<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/footer_logo1.png" width="125" height="auto" alt="TechCrunch" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													</a>
 												</td>
 											</tr>
 										</table>
@@ -904,7 +968,9 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
 												<td>
-													<img src="images/footer_logo2.png" width="125" height="auto" alt="Promgil" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													<a href="https://www.stitch.cx/?logo2" style="text-decoration: none;">
+														<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/footer_logo2.png" width="125" height="auto" alt="Promgil" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													</a>
 												</td>
 											</tr>
 										</table>
@@ -916,7 +982,9 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
 												<td>
-													<img src="images/footer_logo3.png" width="125" height="auto" alt="Mashable" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													<a href="https://www.stitch.cx/?logo3" style="text-decoration: none;">
+														<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/footer_logo3.png" width="125" height="auto" alt="Mashable" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													</a>
 												</td>
 											</tr>
 										</table>
@@ -928,7 +996,9 @@
 										<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 											<tr>
 												<td>
-													<img src="images/footer_logo4.png" width="125" height="auto" alt="atlaspix" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													<a href="https://www.stitch.cx/?logo4" style="text-decoration: none;">
+														<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/footer_logo4.png" width="125" height="auto" alt="atlaspix" border="0" style="display: block; max-width: 125px; width: 100%; height: auto; font-family: 'PT Sans', Arial, sans-serif; font-size: 20px; line-height: 20px; color: #ffffff;">
+													</a>
 												</td>
 											</tr>
 										</table>
@@ -938,19 +1008,19 @@
 						</table>
 					</td>
 				</tr>
-				<!-- Mod 7 - Featured on : END -->
+				<!-- MOD 7 - Featured On Footer Logos : END -->
 
 
 
-				<!-- FOOTER : START -->
+				<!-- MOD 8 - unsubscribe and social links : START -->
 				<tr>
 					<td align="center" valign="top" style="font-size:0; padding: 30px 78px 30px 78px; background-color: #f3f4f6;" class="darkmode-bg footer">
 						<div style="display:inline-block; margin: 0 -1px; width:65%; min-width:200px; max-width:320px; vertical-align:top;" class="stack-column stack-column-center">
 							<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 								<tr>
-									<td style="font-family: 'PT Sans', Arial, Helvetica, sans-serif; font-size: 13px; line-height: 20px; color: #818181; text-align: left;" class="stack-column-center">
-										<span style="margin: 0;">
-											Stitch © copyright 2024 - <a href="#" style="color: #818181; text-decoration: none;">Unsubscribe&nbsp;here</a>
+									<td style="font-family: 'PT Sans', Arial, sans-serif; font-size: 13px; line-height: 20px; color: #818181; text-align: left;" class="stack-column-center">
+										<span style="margin: 0; color: #aaacaf;">
+											<span style="color: #787b80">Stitch ©</span> copyright 2024 - <a href="https://www.stitch.cx/?unsub" style="color: #aaacaf; text-decoration: none;">Unsubscribe&nbsp;here</a>
 										</span>
 									</td>
 								</tr>
@@ -960,14 +1030,14 @@
 							<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
 								<tr>
 									<td style="font-size: 0; text-align: right;" class="stack-column-center pt10">
-										<a href="#" style="display:inline-block; padding: 0 5px;">
-											<img src="images/social_1.png" width="24" height="24" alt="Google Plus" border="0" style="display: block; width: 24px; height: 24px;">
+										<a href="https://www.stitch.cx/?social1" style="display:inline-block; padding: 0 5px;">
+											<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/social_1.png" width="24" height="24" alt="Google Plus" border="0" style="display: block; width: 24px; height: 24px;">
 										</a>
-										<a href="#" style="display:inline-block; padding: 0 5px;">
-											<img src="images/social_2.png" width="24" height="24" alt="Facebook" border="0" style="display: block; width: 24px; height: 24px;">
+										<a href="https://www.stitch.cx/?social2" style="display:inline-block; padding: 0 5px;">
+											<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/social_2.png" width="24" height="24" alt="Facebook" border="0" style="display: block; width: 24px; height: 24px;">
 										</a>
-										<a href="#" style="display:inline-block; padding: 0 5px;">
-											<img src="images/social_3.png" width="24" height="24" alt="Twitter" border="0" style="display: block; width: 24px; height: 24px;">
+										<a href="https://www.stitch.cx/?social3" style="display:inline-block; padding: 0 5px;">
+											<img src="https://m.media-amazon.com/images/G/01/Audible/Email/test_cm_2025/social_3.png" width="24" height="24" alt="Twitter" border="0" style="display: block; width: 24px; height: 24px;">
 										</a>
 										</td>
 								</tr>
@@ -975,7 +1045,7 @@
 						</div>
 					</td>
 				</tr>
-				<!-- FOOTER : END -->
+				<!-- MOD 8 - unsubscribe and social links : END -->
 
 
     <!--[if mso | IE]>
